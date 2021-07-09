@@ -1,0 +1,36 @@
+.errorBox {
+    width: 500px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    margin-left: -250px;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: lavender;
+    border: black solid 1px;
+}
+
+.errorBox * {
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.closeButton {
+    border-radius: 0px;
+    position: absolute;
+    color: white;
+    font-size: medium;
+    background: #c90a0a;
+    border: transparent;
+    right: 0;
+}
+
+.closeButton:hover {
+    background: #e25f5f;
+}
+
+.closeButton:active {
+    background: #9e0303;
+}

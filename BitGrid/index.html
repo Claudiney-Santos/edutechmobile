@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html lang="en-US">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="css/grid.css">
+            <link rel="stylesheet" href="css/errorbox.css">
+            <title>BitGrid</title>
+        </head>
+
+        <body>
+            <div id="io">
+                <div id="input-container">
+                    <div id="code">
+                        <label class="title" for="input-code">Code</label>
+                        <textarea id="input-code"></textarea>
+                        <div id="code-buttons">
+                            <button id="Action">Execute</button>
+                            <button id="Step">Step</button>
+                            <button id="Stop">Clear</button>
+                            <div id="delay">
+                                <input id="delay-input" type="range" value="100" min="0" max="1000" step="50">
+                                <label id="delay-text">100ms</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invisivel" id="program-input">
+                        <label for="input-field">Input:</label>
+                        <input id="input-field" type="text" minlength="0" maxlength="1" autocomplete="off">
+                    </div>
+                </div>
+                <div id="output-container">
+                    <span id="program-state">Program State: Waiting...</span>
+                    <div class="inselecionavel" id="grade">
+                        <label class="title">Grid</label>
+                        <table id="output">
+                            <tr><th>N/A</th></tr>
+                        </table>
+                    </div>
+                    <div id="output-bitgrid">
+                        <label for="output-field">Output:</label>
+                        <span id="output-field"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="errorbox"></div>
+            <script src="js/ErrorBox.js"></script>
+            <script src="js/various-functions.js"></script>
+            <script src="js/BitGrid.js"></script>
+            <script src="js/Grid.js"></script>
+            <script src="js/client.js"></script>
+        </body>
+    </html>
+</DOCTYPE>

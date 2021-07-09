@@ -1,0 +1,86 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+textarea {
+    resize: none;
+    width: 600px;
+    height: 400px;
+}
+
+#io {
+    display: flex;
+    align-items: top;
+    flex-wrap: nowrap;
+}
+
+#code * {
+    display: block;
+}
+
+label.title {
+    text-align: center;
+}
+
+#code-buttons {
+    margin-top: 1ch;
+    width: 600px;
+}
+
+#code-buttons * {
+    display: inline-block;
+}
+
+#delay {
+    float: right;
+}
+
+#delay-text {
+    width: 7ch;
+    text-align: right;
+}
+
+#program-input {
+    margin-top: 1ch;
+}
+
+#input-field {
+    width: 1ch;
+    margin-left: 1ch;
+}
+
+#output-container {
+    display: inline-block;
+    margin-left: 5ch;
+}
+
+#output-container label {
+    display: block;
+}
+
+#output-bitgrid {
+    margin-top: 1ch;
+    border: solid 1px
+}
+
+#output-field {
+    display: inline-block;
+    min-height: 1ch;
+    word-wrap: break-word;
+    max-width: 50ch;
+    margin-left: 0.25ch;
+}
+
+.inselecionavel {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.invisivel {
+    visibility: hidden;
+    display: none;
+}

@@ -1,0 +1,38 @@
+! "Marcação Inicial num1"
+>^>
+
+"num1:"
+
+>v! "Marcação Final num1"
+
+<![!<!]!
+
+^^^!^^!vv "Marcação Inicial num2"
+
+v>>
+
+"num2:"
+>^!
+
+"Alinhar os dois números à direita"
+vvv![!
+  <![!<!]!^^^.^!|,
+  [!vvvv<![!^.>|<|,v<!]!>![!>!]>!^^^.^!|,]
+  ^[!
+    vv>![!>!]!vvv.<!|,[!^^^![!v.>|<|,<^!]!>![!>!]>!vvv.<!|,]
+    >^^^^^
+  ]vvvvv!
+]!
+
+<![!<!]!^^^^^.|, "Apagar 'resíduos'"
+
+vv>![!>!]! "Deixar o cursor no último algarismo"
+
+"Lógica da Soma"
+<![!
+  v.^^|,vvv.^^^|,.^.<&,>.v|^|,vvv.v.^^^^<&,vv!
+]!
+
+"Selecionar o resultado"
+>![!^.v>!]!
+<![!<!]!

@@ -1,0 +1,17 @@
+"Setup"
+.>.>!.^!^!>!v!v!.>.>.>.>!.^!>!v
+
+"Logic: If input == 1, then none bit should be active"
+i|,
+
+"Now it's necessary to place the cursor"
+
+"If input != 1"
+[^^]
+^
+
+"If input == 1"
+[^]
+v
+
+<<<<<<<<.>.>.>.>.>.>.>.>o[o]

@@ -1,0 +1,21 @@
+.grid {
+    font-family: 'Courier New', Courier, monospace;
+    border: black 1px solid;
+    text-align: center;
+}
+
+.grid * {
+    width: 4ch;
+}
+
+.grid th {
+    background-color: grey;
+}
+
+.grid td.current-cell {
+    outline: black 1px solid;
+}
+
+.grid td.selected-cell {
+    background-color: orange;
+}
