@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>21</title>
+</head>
+<body>
+    <header>
+        <h1>21</h1>
+    </header>
+    <main>
+        <div id="mesa">
+            <span>Estado: <span id="status">Ninguém está jogando!</span></span>
+            <hr>
+            <div class="mao">
+                <h2>Oponente</h2>
+                <div class="cartas" id="cartas-oponente"></div>
+            </div>
+            <hr>
+            <div class="mao">
+                <h2>Jogador</h2>
+                <div class="cartas" id="cartas-jogador"></div>
+            </div>
+            <hr>
+        </div>
+        <div id="controles">
+            <button id="comecar-jogo">Começar Jogo</button>
+            <button class="desativado" id="comprar-carta">Comprar Uma Carta</button>
+            <button class="desativado" id="pular-jogada">Pular Vez</button>
+        </div>
+    </main>
+    <script src="js/21.js"></script>
+    <script src="js/client.js"></script>
+</body>
+</html>

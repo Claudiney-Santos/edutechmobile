@@ -1,0 +1,27 @@
+/*Cartas*/
+
+.mao {
+    height: 15ch;
+}
+
+.carta {
+    display: inline-block;
+
+    border: black solid 1px;
+    margin: 5px;
+    padding: 2ch 1ch;
+    min-width: 2ch;
+    background-color: #b4c8ff;
+
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.carta-oculta {
+    background-color: #7d93ff;
+}
+
+/*Classes "Universais"*/
+.desativado {
+    display: none;
+}
