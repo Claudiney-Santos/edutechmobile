@@ -135,17 +135,27 @@ class Visual {
         };
     };
 
-    async atualizarMao(player, carta) {
-        if(carta === undefined) return;
-        const div = this.div[player];
-        const spanCarta = document.createElement('span');
-        spanCarta.classList.add('carta');
-        spanCarta.innerText = carta;
-        const delay = new Promise(resolve => {
-            setTimeout(resolve, this.delay/2);
+    atualizarMao(player, carta) {
+        return new Promise(async resolve => {
+            const animationDuration = this.delay/2;
+            if(carta === undefined)
+                setTimeout(resolve, animationDuration/2);
+            else {
+                const div = this.div[player];
+
+                const spanCarta = document.createElement('span');
+                div.appendChild(spanCarta);
+                spanCarta.innerText = carta;
+                spanCarta.classList.add('carta');
+                spanCarta.style.animationDuration = animationDuration + 'ms';
+
+                const delay = new Promise(resolve => {
+                    spanCarta.addEventListener('animationend', resolve);
+                });
+                await delay;
+                resolve();
+            };
         });
-        await delay;
-        div.appendChild(spanCarta);
     };
 
     async init(cartasJogador, cartasOponente) {
@@ -156,19 +166,22 @@ class Visual {
             jogador: cartasJogador
         };
 
+        const animationDuration = this.delay/2;
         for(let i=0;i<2;i++) {
             for(const player in cartas) {
                 let carta;
                 const jogada = new Promise(resolve => {
                     carta = document.createElement('span');
+                    this.div[player].appendChild(carta);
+
                     carta.classList.add('carta');
+                    carta.style.animationDuration = animationDuration + 'ms';
                     if(i === 0)
                         carta.classList.add('carta-oculta');
                     carta.innerText = i === 1 || player === 'jogador' ? cartas[player][i] : '?';
-                    setTimeout(resolve, this.delay/2);
+                    carta.addEventListener('animationend', resolve);
                 });
                 await jogada;
-                this.div[player].appendChild(carta);
             };
         };
 
@@ -216,10 +229,12 @@ class Jogo {
         const turno = this.turno;
         const carta = this._sistema.play(turno, jogada);
         const estado = turno + (carta ? 2 : 4);
-        this._visual.atualizarMao(turno ? 'oponente' : 'jogador', carta);
         this._visual.atualizarEstado(estado);
         const delay = new Promise(resolve => {
-            setTimeout(resolve, this._visual.delay);
+            this._visual.atualizarMao(turno ? 'oponente' : 'jogador', carta)
+            .then(() => {
+                setTimeout(resolve, this._visual.delay/2);
+            });
         });
         await delay;
     };

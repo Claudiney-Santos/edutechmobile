@@ -1,0 +1,10 @@
+@keyframes slideLeft {
+    from {
+        margin-left: 100%;
+        visibility: hidden;
+    }
+    to {
+        margin-left: 5px;
+        visibility: visible;
+    }
+}
