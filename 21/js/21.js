@@ -1,8 +1,4 @@
 class Sistema {
-    constructor() {
-        this.reset();
-    };
-
     get turno() {
         return this._turno;
     };
@@ -12,10 +8,11 @@ class Sistema {
         while(baralho.length < 11) {
             let carta;
             do
-                carta = Math.floor(Math.random()*11) + 1;
+                carta = Math.floor(Math.random()*11)+1;
             while(baralho.includes(carta));
             baralho.push(carta);
         };
+
         this._baralho = baralho;
         this._compras = [];
         this._turno = Math.round(Math.random());
@@ -23,6 +20,7 @@ class Sistema {
     };
 
     init() {
+        this.reset();
         for(let i=0;i<4;i++) {
             this._compras.push(this._turno);
             this._nextPlayer();
@@ -34,8 +32,7 @@ class Sistema {
     };
 
     play(index, action) {
-        if(this.acabou) return;
-        if(index !== this._turno) return;
+        if(this.acabou || index !== this._turno) return;
         let carta;
         if(action.toLowerCase() === 'hit' && this.somaDe(index) <= 21) {
             this._compras.push(index);
@@ -85,11 +82,11 @@ class Sistema {
 };
 
 class Visual {
-    constructor(delay, divJogador, divOponente, spanEstado) {
+    constructor(delay, divJogador, divOponente, estado) {
         this.div = {
             jogador: divJogador,
             oponente: divOponente,
-            estado: spanEstado
+            estado: estado
         };
         this.delay = delay;
     };
@@ -152,6 +149,7 @@ class Visual {
     };
 
     async init(cartasJogador, cartasOponente) {
+        this.reset();
         this.atualizarEstado(-1);
         const cartas = {
             oponente: cartasOponente,
@@ -182,9 +180,9 @@ class Visual {
 };
 
 class Jogo {
-    constructor(delay, divJogador, divOponente, spanEstado) {
+    constructor(delay, divJogador, divOponente, estado) {
         this._sistema = new Sistema();
-        this._visual = new Visual(delay, divJogador, divOponente, spanEstado);
+        this._visual = new Visual(delay, divJogador, divOponente, estado);
     };
 
     get turno() {
@@ -193,10 +191,6 @@ class Jogo {
 
     get acabou() {
         return this._sistema.acabou;
-    };
-
-    get acabou() {
-        return this._sistema._skips === 3;
     };
 
     get cartasDoJogadorAtual() {
@@ -221,7 +215,7 @@ class Jogo {
     async jogada(jogada) {
         const turno = this.turno;
         const carta = this._sistema.play(turno, jogada);
-        const estado = turno + (jogada === 'hit' ? 2 : 4);
+        const estado = turno + (carta ? 2 : 4);
         this._visual.atualizarMao(turno ? 'oponente' : 'jogador', carta);
         this._visual.atualizarEstado(estado);
         const delay = new Promise(resolve => {
@@ -231,8 +225,6 @@ class Jogo {
     };
 
     async init() {
-        this._sistema.reset();
-        this._visual.reset();
         this._sistema.init();
         await this._visual.init(this._sistema.cartasDe(0), this._sistema.cartasDe(1));
     };

@@ -1,7 +1,30 @@
-/*Cartas*/
+/* Mesa */
+#mesa {
+    background-color: #108136;
+    border: 1px solid #04551f;
+}
 
+#mesa hr {
+    border: inherit;
+}
+
+#mesa p {
+    display: inline-block;
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#mesa h2 {
+    color: #9dffbb;
+}
+
+/* Cartas */
 .mao {
     height: 15ch;
+    margin-left: 1em;
 }
 
 .carta {
@@ -18,10 +41,75 @@
 }
 
 .carta-oculta {
-    background-color: #7d93ff;
+    background-color: #4561ec;
+    color: #ffffff;
+    font-weight: bold;
 }
 
-/*Classes "Universais"*/
-.desativado {
+/* Botões */
+#controles {
+    margin-top: 1em;
+}
+
+#controles button {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    transition: 0.2s all;
+}
+
+#controles button:hover {
+    cursor: pointer;
+}
+
+#controles #comecar-jogo {
+    background-color: rgb(80, 113, 255);
+    color: #FFFFFF;
+}
+
+#controles #comecar-jogo:hover {
+    background-color: rgb(119, 151, 255);
+}
+
+#controles #comecar-jogo:active {
+    background-color: rgb(35, 38, 231);
+}
+
+#controles #comprar-carta {
+    background-color: transparent;
+    border-color: rgb(49, 183, 255);
+    color: rgb(49, 183, 255);
+}
+
+#controles #comprar-carta:hover {
+    background-color: rgb(49, 183, 255);
+    color: white;
+}
+
+#controles #comprar-carta:active {
+    background-color: rgb(8, 119, 179);
+    border-color: rgb(8, 119, 179);
+    color: white;
+}
+
+#controles #pular-jogada {
+    background-color: transparent;
+    border-color: rgb(214, 24, 24);
+    color: rgb(214, 24, 24);
+}
+
+#controles #pular-jogada:hover {
+    background-color: rgb(214, 24, 24);
+    color: white;
+}
+
+#controles #pular-jogada:active {
+    background-color: rgb(177, 12, 12);
+    border-color: rgb(177, 12, 12);
+    color: white;
+}
+
+#controles *.desativado {
     display: none;
 }
