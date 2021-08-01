@@ -27,6 +27,11 @@
     margin-left: 1em;
 }
 
+.cartas {
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
 .carta {
     display: inline-block;
 
@@ -35,15 +40,18 @@
     padding: 2ch 1ch;
     min-width: 2ch;
     background-color: #b4c8ff;
+    border-color: #6b86d1;
 
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-    animation: slideLeft cubic-bezier(.77,.66,.41,1);
+    animation-name: slideLeft;
+    animation-timing-function: cubic-bezier(0, 0.7, 0.5, 1);
 }
 
 .carta-oculta {
     background-color: #4561ec;
+    border-color: #243baf;
     color: #ffffff;
     font-weight: bold;
 }
