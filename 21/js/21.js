@@ -15,8 +15,7 @@ class Sistema {
 
         this._baralho = baralho;
         this._compras = [];
-        //this._turno = Math.round(Math.random());
-        this._turno = 0;
+        this._turno = Math.round(Math.random());
         this._skips = 0;
     };
 
