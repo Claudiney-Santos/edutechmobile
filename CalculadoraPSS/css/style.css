@@ -1,0 +1,140 @@
+body, select, input, button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    display: inline-block;
+    width: 100%;
+    background-color: #3436b8;
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+header .titulo {
+    font-size: 4em;
+    text-align: center;
+    margin: 0.5em 0;
+    color: #c6c7ff;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > * {
+    margin: 1em 0;
+}
+
+select, input, label, button {
+    cursor: pointer;
+}
+
+form > fieldset > legend {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+fieldset > select, fieldset > label {
+    font-size: 1em;
+    margin-left: 1em;
+}
+
+ol li {
+    list-style-type: decimal-leading-zero;
+    margin-left: 3em;
+}
+
+#questoes {
+    display: inline-block;
+    border: 1px solid black;
+    height: 20em;
+    width: auto;
+    padding-right: 1em;
+    overflow-y: scroll;
+}
+
+#questoes li {
+    margin: 1em 3em;
+}
+
+#questoes .soma {
+    width: 4ch;
+}
+
+#btn-calcular-nota {
+    background: #a87ef7;
+    transition: all 0.2s;
+    border: none;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 0 2px black;
+
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#btn-calcular-nota:hover {
+    background: #9764f5;
+    box-shadow: inset 0 0 4px black;
+    font-size: calc(1.2em * 0.98);
+}
+
+#btn-calcular-nota:active {
+    background: #8046ec;
+    box-shadow: inset 0 0 6px black;
+    font-size: calc(1.2em * 0.96);
+}
+
+#relatorio {
+    width: 40ch;
+}
+
+#relatorio > * {
+    margin: 1em 0;
+}
+
+.nome-materia {
+    text-align: left;
+    border: none;
+    border-radius: 0;
+    background-color: #7a49d4;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.nome-materia:hover {
+    background-color: #9a64ff;
+}
+
+.nome-materia:active {
+    background-color: #5e32af;
+}
+
+.materia {
+    background-color: #e6d7ff;
+}
+
+.materia > * {
+    margin: 1em;
+}
+
+.pontos > * {
+    margin-top: 1em;
+}

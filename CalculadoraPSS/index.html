@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/colapsavel.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-mobile.css">
+    <title>Calculadora PSS</title>
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Calculadora PSS</h1>
+    </header>
+
+    <main>
+        <form>
+            <h1>Informações</h1>
+
+            <fieldset>
+                <legend>Ano da edição:</legend>
+                <select name="ano-da-edicao">
+                    <option>2020</option>
+                    <option>2019</option>
+                    <option>2018</option>
+                    <option>2017</option>
+                    <option>2016</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Edição:</legend>
+                <select name="edicao">
+                    <option>PSS I</option>
+                    <option>PSS II</option>
+                    <option>PSS III</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Língua Estrangeira:</legend>
+                <label><input name="lingua-estrangeira" id="lingua-ingles" checked type="radio"> Inglês</label>
+                <label><input name="lingua-estrangeira" id="lingua-espanhol" type="radio"> Espanhol</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Questões:</legend>
+
+                <ol id="questoes">
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                    <li>
+                        <input name="soma" class="soma" type="number" placeholder="00" min="0" max="15">
+                        <label><input class="alternativa" data-valor="1" type="checkbox"> 01</label>
+                        <label><input class="alternativa" data-valor="2" type="checkbox"> 02</label>
+                        <label><input class="alternativa" data-valor="4" type="checkbox"> 04</label>
+                        <label><input class="alternativa" data-valor="8" type="checkbox"> 08</label>
+                    </li>
+                </ol>
+
+            </fieldset>
+
+            <button type="button" id="btn-calcular-nota">Calcular Nota</button>
+        </form>
+        <div id="relatorio">
+            <h1>Resultados</h1>
+
+            <h2>Pontuação Total: <span id="pontuacao-total">N/A</span> pts</h2>
+            
+            <div>
+                <button class="titulo-colapsavel nome-materia">Língua Portuguesa</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Arte</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos" start="6">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Educação Física</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="11">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Biologia</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="16">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Física</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="21">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Química</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="26">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Matemática</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="31">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">História</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="36">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Geografia</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="41">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Filosofia</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="46">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Sociologia</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="51">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <button class="titulo-colapsavel nome-materia">Língua Estrangeira</button>
+                <div class="conteudo-colapsavel materia">
+                    <div>
+                        <h3>Pontuação: <span class="pontuacao">N/A</span> pts</h3>
+                    </div>
+                    <div>
+                        <h3>Questões:</h3>
+                        <ol class="pontos"start="56">
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                            <li>Sua pontuação: <span class="pontuacao-na-questao">N/A</span><br>Resposta Correta: <span class="resposta-correta-soma">N/A</span> = <span class="resposta-correta-alternativas">N/A</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/conteudoColapsavel.js"></script>
+    <script src="js/calcularSomatoria.js"></script>
+    <script src="js/client.js"></script>
+</body>
+</html>

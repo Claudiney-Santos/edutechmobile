@@ -1,0 +1,13 @@
+@media screen and (max-width: 400px) {
+    header .titulo {
+        font-size: 2em;
+    }
+
+    #relatorio {
+        width: 100%;
+    }
+
+    .nome-materia {
+        font-size: 1.8em;
+    }
+}

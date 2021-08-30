@@ -1,0 +1,39 @@
+.titulo-colapsavel {
+    display: block;
+    font-size: 2em;
+    width: 100%;
+}
+
+.titulo-colapsavel::before {
+    margin: 0 0.5ch;
+    display: inline-block;
+    content: "\025B8";
+    transition: transform 0.2s ease;
+
+    --graus-girados: 0deg;
+    -ms-transform: rotate(var(--graus-girados));
+    -webkit-transform: rotate(var(--graus-girados));
+    transform: rotate(var(--graus-girados));
+    
+    --x: 47%;
+    -ms-transform-origin: var(--x) 50%;
+    -webkit-transform-origin: var(--x) 50%;
+    transform-origin: var(--x) 50%;
+
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.titulo-colapsavel.ativo::before {
+    --graus-girados: 90deg;
+    -ms-transform: rotate(var(--graus-girados));
+    -webkit-transform: rotate(var(--graus-girados));
+    transform: rotate(var(--graus-girados));
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+}
+
+.conteudo-colapsavel {
+    transition: max-height 0.2s ease-out;
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+}
