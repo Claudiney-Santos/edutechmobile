@@ -1,7 +1,7 @@
 window.onload = () => {
     let gabaritos;
     fetch(
-        'son/gabaritos.json'
+        'json/gabaritos.json'
     ).then(resultado => {
         if(resultado.ok)
             return resultado.json();
