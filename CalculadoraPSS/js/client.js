@@ -1,8 +1,10 @@
 window.onload = () => {
     let gabaritos;
-    fetch(
-        'json/gabaritos.json'
-    ).then(resultado => {
+    const headers = new Headers();
+    for(const name of ['pragma', 'cache-control'])
+        headers.append(name, 'no-cache');
+    fetch('json/gabaritos.json', { method: 'GET', headers: headers })
+    .then(resultado => {
         if(resultado.ok)
             return resultado.json();
         else
