@@ -21,6 +21,7 @@ const calcularSomatoria = (gabarito, respostas, valorDaQuestao) => {
         const porcentagens = [];
         let qntAltVerdadeiras = 0;
         let qntAltMarcadasCorretamente = 0;
+        let errou = false;
         for(let j=0;j<alternativasCorretas.length;j++) {
             const altCorreta = alternativasCorretas[j];
             const altMarcada = alternativasMarcadas[j];
@@ -31,8 +32,8 @@ const calcularSomatoria = (gabarito, respostas, valorDaQuestao) => {
             
             if(!(altCorreta) && altMarcada) {
                 qntAltMarcadasCorretamente = 0;
-                break;
-            } else if(altMarcada && altCorreta)
+                errou = true;
+            } else if(altMarcada && altCorreta && !errou)
                 qntAltMarcadasCorretamente++;
         };
         nota.push((valorDaQuestao*qntAltMarcadasCorretamente)/qntAltVerdadeiras);
