@@ -8,22 +8,33 @@ class BitGrid {
             rows: 1000,
             defaultValue: false,
             ignoreErrors: false,
-            loopsLimit: 10
+            executionTimeLimit: 1000
         };
         this._errorMessages = {
+            'Internal': {
+                'notPairGroup': '"%0" is not in this._runtime.charPosition!',
+                'module': 'There is an error in module "%0":\n%1'
+            },
             'Range': {
                 'index<0': '%0 index cannot be lower than zero!',
-                'loopsLimit': `This program has exceeded the limit of active loops (${this._config.loopsLimit} loops)!`
+                'executionTimeLimit': `This program has exceeded the execution time limit (${this._config.executionTimeLimit}ms)!`
+            },
+            'Reference': {
+                'moduleDoesNotExist': 'There is no module named "%0"'
             },
             'Syntax': {
-                'open': 'There is an open %0!'
-            },
-            'Internal': {
-                'notPairGroup': '"%0" is not in this._runtime.charPosition!'
+                'open': 'There is an open %0!',
+                'invalidModule': 'There is an invalid module, the correct syntax is:\n{name:before execution:after execution}'
             }
         };
 
-        this._modules = {};
+        this._modules = {
+            'true': '!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>!<![!<!]!>![!^.v>!]!i<![!^!v<!]!o',
+            'false': '!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>!<![!<!]!>![!^.v>!]!io',
+            'xor': '!^>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>v>!<![!<!]!>![!^.v>!]!i,<![!<!]!>![!^^!v[v<![!<!]!^!^>[>]v<!]>v!]!<![!<!]!^.o',
+            'sum': '!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>!<![!<!]!>![!^.v>!]!i^|,[!v<![!^.^.^^<&,>vv[!^!v]v[!^^!vv]^^.^.<&,>[!vv!^^]v[!v!^]vvv<!]!>![!^.v>!]!^i|,]v<![!<!]!>![!^^.vv>!]!o',
+            'decimal-input': '^!>>>>>>>>>!<![!<!]![v.|>.|>.|>.|>.|<<<<i,[!>^^^.>.>.>.{sum:oooooooooo,<<<vv![!^.v>!]!o:i,}<![!<!]!>^^.|>.|>.|>.|,vv![!v[!^^^!vvv]<^!]!v>]^[>>]<]^^.>.>.>.{sum:o,[!]<[!]<[!]<[!]vv![!^.v>!]!o:<![!^[!]v<!]!i}o'
+        };
         this._error = {};
         this._runtime = {};
         this._grid = {};
@@ -50,7 +61,16 @@ class BitGrid {
      * @param {string} input
      */
     set input(input) {
-        this._runtime.input = input;
+        if(!Array.isArray(input))
+            throw new TypeError(`Variable "input" must be an array, but it is "${typeof(input)}"`);
+        const inputArray = [];
+        for(let i=0; i<input.length;i++) {
+            const bit = Number(input[i]);
+            if(bit !== 0 && bit !== 1)
+                throw new RangeError(`input[${i}] must be 0 or 1, but it is ${bit}`);
+            inputArray[i] = bit;
+        };
+        this._runtime.input = inputArray;
     };
 
     get defaultValue() {
@@ -74,12 +94,12 @@ class BitGrid {
     }
 
     get modules() {
-        return this._modules;
+        return Object.assign({}, this._modules);
     };
 
     set modules(module) {
         if(typeof(module) === 'object' && !Array.isArray(module))
-            this._modules = new Object.assign({}, module);
+            this._modules = Object.assign({}, module);
         else
             throw new TypeError(`Module "${module}" is not an object with keys!`);
     };
@@ -90,7 +110,7 @@ class BitGrid {
             selectedCells: [],
             x: 0,
             y: 0
-        }
+        };
         const gridArray = [];
 
         for(let y=0; y<this._config.rows; y++) {
@@ -116,17 +136,17 @@ class BitGrid {
 
     resetRuntime() {
         this._runtime = {
-            input: undefined,
+            input: [],
             requestInput: false,
-            output: undefined,
+            output: [],
             thereIsOutput: false,
             currentChar: 0,
-            currentLoops: 0,
             isComplete: false,
             charPosition: {
                 '[]': [],
                 '{}': []
-            }
+            },
+            modules: []
         };
     };
 
@@ -144,27 +164,8 @@ class BitGrid {
         delete this._modules[name];
     };
 
-    _lookForPairCharsIn(string) {
-        const charPosition = this._runtime.charPosition;
-        const tempOpen = {};
-        for(let char in charPosition) {
-            tempOpen[char] = [];
-            for(let i=0; i<string.length; i++) {
-                switch(string[i]) {
-                    case char[0]:
-                        tempOpen[char].push(i);
-                        break;
-                    case char[1]:
-                        if(tempOpen[char].length === 0)
-                            this._triggerError('Syntax', 'open', `"${char[1]}"`);
-                        else
-                            charPosition[char].push([tempOpen[char].splice(-1)[0], i]);
-                        break;
-                };
-            };
-            if(tempOpen[char].length > 0)
-                this._triggerError('Syntax', 'open', `"${char[0]}"`);
-        };
+    removeAllModules() {
+        this._modules = {};
     };
 
     start(steps, forceSteps)  {
@@ -180,9 +181,6 @@ class BitGrid {
         const comments = new RegExp(
             `${commentChar}[^${commentChar}]*${commentChar}`,
             'g');
-        const modules = new RegExp(
-            '(\{\w*:?[^:]*:?[]\})',
-            'g');
         const script = this.script.
             replace(whitespaces, '').
             replace(comments, '');
@@ -194,7 +192,7 @@ class BitGrid {
         if(forceSteps === undefined)
             forceSteps = false;
 
-        console.log(script);
+        this._runtime.modules = this._validateModules(script);
         this._lookForPairCharsIn(script);
 
         if(script.indexOf(commentChar) > -1)
@@ -204,6 +202,7 @@ class BitGrid {
         let temInput = this._runtime.requestInput;
         this._runtime.requestInput = false;
         this._runtime.thereIsOutput = false;
+        const executionBegin = performance.now();
         while(steps>0) {
             if(this._runtime.currentChar >= script.length)
                 break;
@@ -253,24 +252,32 @@ class BitGrid {
                 case 'o':
                     this._output();
                     this._runtime.thereIsOutput = true;
+                    this._runtime.currentChar++;
                     return;
                 case '[':
+                    ehComando = false;
                     const beforeOpenLoop = this._runtime.currentChar;
                     this._loop(true);
                     const afterOpenLoop = this._runtime.currentChar;
                     steps -= forceSteps ? 0 : afterOpenLoop - beforeOpenLoop;
                     break;
                 case ']':
+                    ehComando = false;
                     const beforeEndLoop = this._runtime.currentChar;
                     this._loop(false);
                     const afterEndLoop = this._runtime.currentChar;
                     steps += forceSteps ? 0 : beforeEndLoop - afterEndLoop;
                     break;
+                case '{':
+                    this._useModule();
                 default:
                     ehComando = false;
                     break;
             };
 
+            if(performance.now() - executionBegin > this._config.executionTimeLimit)
+                this._triggerError('Range', 'executionTimeLimit');
+            
             if(this._error.hasAny && !this._config.ignoreErrors)
                 break;
 
@@ -281,8 +288,6 @@ class BitGrid {
         
         if(this._runtime.currentChar >= script.length)
             this._runtime.isComplete = true;
-
-        return Object.assign({}, this._error);
     };
 
     _moveUp() {
@@ -383,7 +388,7 @@ class BitGrid {
 
     _getInput() {
         const selectedCells = this._grid.selectedCells;
-        const binary = this._runtime.input.charCodeAt().toString(2);
+        const binary = this._runtime.input.join('');
         const grid = this._grid.array;
 
         for(let i=0; i<binary.length; i++) {
@@ -405,14 +410,14 @@ class BitGrid {
         const selectedCells = this._grid.selectedCells;
         const grid = this._grid.array;
 
-        let binary = '';
+        let binary = [];
         for(let i=0; i<selectedCells.length; i++) {
             const coord = { x: selectedCells[i][0], y: selectedCells[i][1] };
 
-            binary += grid[coord.y][coord.x] ? '1' : '0';
+            const bit = grid[coord.y][coord.x] ? 1 : 0;
+            binary.push(bit);
         };
-        const char = String.fromCharCode(parseInt(binary, 2));
-        this._runtime.output = char;
+        this._runtime.output = binary;
     };
 
     _loop(isStart) {
@@ -420,12 +425,102 @@ class BitGrid {
         const index = isStart ? 0 : 1;
         const logic = isStart ? !currentBit : currentBit;
 
-        if(logic) {
-            /*if(this._runtime.currentLoops > this._config.loopsLimit)
-                this._triggerError('Range', 'loopsLimit');*/
+        if(logic)
             this._gotoRespectiveChar('[]', index);
-        }/* else
-            this._runtime.currentLoops += isStart ? 1 : -1*/;
+    };
+
+    _useModule() {
+        const modules = this._runtime.modules;
+        let currentModule;
+        for(let i=0; i<modules.length; i++) {
+            if(modules[i].charIndex === this._runtime.currentChar) {
+                currentModule = modules[i];
+                break;
+            }
+        };
+        if(!(currentModule.name in this._modules))
+            this._triggerError('Reference', 'moduleDoesNotExist', currentModule.name);
+
+        const modulo = new BitGrid();
+        modulo.script = this._modules[currentModule.name];
+        modulo.modules = this._modules;
+        
+        const inputs = [];
+        const outputs = [];
+        
+        let programaParalelo = new BitGrid();
+        programaParalelo._grid = this._grid;
+        programaParalelo.script = currentModule.before;
+        
+        while(!(programaParalelo.isComplete || programaParalelo.error.hasAny)) {
+            programaParalelo.run(programaParalelo.currentChar);
+            
+            if(programaParalelo.requestInput)
+                programaParalelo.input = [];
+            else if(programaParalelo.thereIsOutput)
+                outputs.push(programaParalelo.output);
+        };
+        
+        this._grid = programaParalelo._grid;
+        
+        let outputCount = 0;
+        while(!(modulo.isComplete || modulo.error.hasAny)) {
+            modulo.run(modulo.currentChar);
+            if(modulo.requestInput) {
+                modulo.input = outputs[outputCount] || [];
+                outputCount++;
+            } else if(modulo.thereIsOutput) {
+                inputs.push(modulo.output);
+            };
+        };
+
+        if(modulo.error.hasAny)
+            this._triggerError('Internal', 'module', [currentModule.name, modulo.error.message]);
+        
+        programaParalelo = new BitGrid();
+        programaParalelo._grid = this._grid;
+        programaParalelo.script = currentModule.after;
+        
+        let inputCount = 0;
+        while(!(programaParalelo.isComplete || programaParalelo.error.hasAny)) {
+            programaParalelo.run(programaParalelo.currentChar);
+
+            if(programaParalelo.requestInput) {
+                programaParalelo.input = inputs[inputCount] || [];
+                inputCount++;
+            };
+        };
+        console.log(inputs, outputs);
+
+        this._grid = programaParalelo._grid;
+
+        this._gotoRespectiveChar('{}', 0);
+    };
+
+    _lookForPairCharsIn(string) {
+        const charPosition = this._runtime.charPosition;
+        for(const char in charPosition)
+            charPosition[char] = [];
+
+        const tempOpen = {};
+        for(const char in charPosition) {
+            tempOpen[char] = [];
+            for(let i=0; i<string.length; i++) {
+                switch(string[i]) {
+                    case char[0]:
+                        tempOpen[char].push(i);
+                        break;
+                    case char[1]:
+                        if(tempOpen[char].length === 0)
+                            this._triggerError('Syntax', 'open', `"${char[1]}"`);
+                        else
+                            charPosition[char].push([tempOpen[char].splice(-1)[0], i]);
+                        break;
+                };
+            };
+            if(tempOpen[char].length > 0)
+                this._triggerError('Syntax', 'open', `"${char[0]}"`);
+        };
     };
 
     _gotoRespectiveChar(group, index) {
@@ -442,7 +537,32 @@ class BitGrid {
         throw new ReferenceError(message);
     };
 
-    _triggerError(type, extras, variables) {
+    _validateModules(script) {
+        const modulesList = [];
+        for(const moduleIndex of this._runtime.charPosition['{}']) {
+            const moduleString = script.substring(moduleIndex[0]+1, moduleIndex[1]);
+            const moduleParts = moduleString.split(':');
+            if(moduleParts.length > 3) {
+                this._triggerError('Syntax', 'invalidModule', moduleParts.length);
+                return;
+            };
+            if(moduleParts.length < 1)
+                moduleParts.push('');
+            if(moduleParts.length < 2)
+                moduleParts.push('o');
+            else if(moduleParts[1] === '')
+                moduleParts[1] = 'o';
+            if(moduleParts.length < 3)
+                moduleParts.push('i');
+            else if(moduleParts[2] === '')
+                moduleParts[2] = 'i';
+            
+            modulesList.push({name: moduleParts[0], before: moduleParts[1], after: moduleParts[2], charIndex: moduleIndex[0]});
+        };
+        return modulesList;
+    };
+
+    _triggerError(type, expecification, variables) {
         this._error.hasAny = true;
         this._error.type = type;
         this._error.position.x = this._grid.x;
@@ -450,20 +570,17 @@ class BitGrid {
         this._error.char = this._runtime.currentChar;
 
         const title = `${type}Error`;
-        let message = this._errorMessages[type][extras];
+        let message = this._errorMessages[type][expecification];
 
         if(variables !== undefined) {
             if(Array.isArray(variables)) {
-                for(let i=0; i<variables.length; i++) {
+                for(let i=variables.length-1;i>=0;i++)
                     message = message.replace(`%${i}`, variables[i]);
-                };
             } else if(typeof(variables) === 'object') {
-                for(key in variables) {
+                for(key in variables)
                     message = message.replace(key, variables[key]);
-                };
-            } else {
+            } else
                 message = message.replace('%0', variables);
-            }
         };
 
         this._error.title = title;

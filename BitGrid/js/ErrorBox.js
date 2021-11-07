@@ -25,10 +25,10 @@ class ErrorBox {
     trigger(title, message) {
         this._title.innerText = title;
         this._message.innerText = message;
-        this.container.style.visibility = 'visible';
+        this.container.style.display = 'inline-block';
     };
 
     hide() {
-        this.container.style.visibility = 'hidden';
+        this.container.style.display = 'none';
     };
 };

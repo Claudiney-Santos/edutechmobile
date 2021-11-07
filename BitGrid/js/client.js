@@ -17,6 +17,7 @@ window.onload = () => {
     const delayLabel = document.getElementById('delay-text');
     const btn = {
         act: document.getElementById('Action'),
+        modules: document.getElementById('Modules'),
         pause: document.getElementById('Pause'),
         step: document.getElementById('Step'),
         stop: document.getElementById('Stop')
@@ -26,6 +27,27 @@ window.onload = () => {
     btn.act.stepWTF = false;
     const errorBox = new ErrorBox(document.getElementById('errorbox'));
     const grade = new Grid(document.getElementById('output'));
+    const moduleBox = new ModuleBox(document.getElementById('modulebox'));
+
+    for(const moduleName in bitGrid.modules)
+        moduleBox.addModule(moduleName, bitGrid.modules[moduleName]);
+
+    for(const evento of ['drop', 'dragover']) {
+        window.addEventListener(evento, event => {
+            //event.preventDefault();
+            return false;
+        }, false);
+    };
+    
+    moduleBox.onclose = () => {
+        const modules = moduleBox.getModules();
+        const bitModules = {};
+        for(const module of modules) {
+            bitModules[module.name] = module.content;
+        };
+        console.log(modules);
+        bitGrid.modules = bitModules;
+    };
 
     const executarComando = (ehComeco, charIndex, steps, forceSteps)  => {
         btn.stop.innerText = 'Stop Execution';
@@ -42,24 +64,21 @@ window.onload = () => {
             bitGrid.start(steps, forceSteps);
         else
             bitGrid.run(charIndex, steps, forceSteps);
-        if(bitGrid.isComplete) {
+
+        const erros = bitGrid.error;
+        let estado = 2;
+
+        if(bitGrid.isComplete || erros.hasAny) {
             btn.act.emExecucao = false;
             btn.act.isPaused = false;
             btn.act.stepWTF = false;
             btn.stop.innerText = 'Clear';
             btn.act.innerText = 'Execute';
         };
-        const erros = bitGrid.error;
-        let estado = 2;
-        if (erros.hasAny) {
+        if(erros.hasAny) {
             errorBox.trigger(erros.title, erros.message);
             limparIntervalos();
             estado = -1;
-            btn.act.emExecucao = false;
-            btn.act.isPaused = false;
-            btn.act.stepWTF = false;
-            btn.act.innerText = 'Execute';
-            btn.stop.innerText = 'Clear';
         } else if(bitGrid.requestInput) {
             inputDiv.classList.remove('invisivel');
             inputField.focus();
@@ -104,10 +123,11 @@ window.onload = () => {
     };
 
     const atualizarOutput = () => {
-        output += bitGrid.output;
+        const bin = bitGrid.output.join('');
+        const char = String.fromCharCode(parseInt(bin, 2));
+        output += char;
         outputField.innerText = output;
         desenharGrade();
-        bitGrid.currentChar++;
     };
 
     textarea.oninput = () => {
@@ -163,6 +183,7 @@ window.onload = () => {
                     btn.act.isPaused = false;
                     btn.act.stepWTF = false;
                     desenharGrade();
+                    executarComando(false, bitGrid.currentChar, 0, true);
                     funcaoExecutar();
                 };
             };
@@ -172,11 +193,11 @@ window.onload = () => {
     const funcaoExecutar = () => {
         setInterval(() => {
             executarComando(false, bitGrid.currentChar, 1, true);
-            if(bitGrid.thereIsOutput)
-                setTimeout(funcaoExecutar, delayInput.value);
-            else if(bitGrid.isComplete || bitGrid.requestInput) {
-                btn.act.innerText = bitGrid.requestInput ? 'Pause' : 'Execute';
+            if(bitGrid.isComplete || bitGrid.thereIsOutput || bitGrid.requestInput) {
                 limparIntervalos();
+                btn.act.innerText = bitGrid.requestInput ? 'Pause' : 'Execute';
+                if(bitGrid.thereIsOutput)
+                    setTimeout(funcaoExecutar, delayInput.value);
             };
         }, delayInput.value);
     };
@@ -190,7 +211,7 @@ window.onload = () => {
             atualizarEstado(0);
         } else {
             if(bitGrid.requestInput) {
-                bitGrid.input = inputField.value;
+                bitGrid.input = valorDoInputFieldEmBits();
                 inputField.esconder();
             } else if(!(btn.act.isPaused || btn.act.emExecucao || btn.act.stepWTF)) {
                 output = '';
@@ -223,6 +244,8 @@ window.onload = () => {
         btn.stop.innerText = 'Clear';
     };
 
+    btn.modules.onclick = () => { moduleBox.show(); };
+
     inputField.esconder = () => {
         inputDiv.classList.add('invisivel');
         inputField.value = '';
@@ -233,7 +256,7 @@ window.onload = () => {
 
         switch(event.key) {
             case 'Enter':
-                bitGrid.input = inputField.value;
+                bitGrid.input = valorDoInputFieldEmBits();
                 inputField.esconder();
                 if(delayInput.value == 0) {
                     do {
@@ -250,6 +273,12 @@ window.onload = () => {
         if(preventDefault)
             event.preventDefault();
     });
+
+    const valorDoInputFieldEmBits = () => {
+        const char = inputField.value;
+        const binary = char === '' ? [0] : char.charCodeAt().toString(2).split('');
+        return binary;
+    };
 
     bitGrid.resetAll();
     desenharGrade();

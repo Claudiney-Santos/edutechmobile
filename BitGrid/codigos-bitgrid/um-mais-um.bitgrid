@@ -1,6 +1,6 @@
-"valor 1:" !
+"valor 1:" .i,
 >
-"valor 2:" !
+"valor 2:" .i,
 <
 
 .>.>

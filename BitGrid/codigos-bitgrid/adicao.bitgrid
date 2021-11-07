@@ -3,6 +3,9 @@
 
 "num1:"
 
+"Ideia merda do Thomas"
+.>.>.>.>i"Parada aqui"
+
 >v! "Marcação Final num1"
 
 <![!<!]!
@@ -11,7 +14,53 @@
 
 v>>
 
-"num2:"
+"num2:"!>>>
+>^!
+
+"Alinhar os dois números à direita"
+vvv![!
+  <![!<!]!^^^.^!|,
+  [!vvvv<![!^.>|<|,v<!]!>![!>!]>!^^^.^!|,]
+  ^[!
+    vv>![!>!]!vvv.<!|,[!^^^![!v.>|<|,<^!]!>![!>!]>!vvv.<!|,]
+    >^^^^^
+  ]vvvvv!
+]!
+
+<![!<!]!^^^^^.|, "Apagar 'resíduos'"
+
+vv>![!>!]! "Deixar o cursor no último algarismo"
+
+"Lógica da Soma"
+<![!
+  v.^^|,vvv.^^^|,.^.<&,>.v|^|,vvv.v.^^^^<&,vv!
+]!
+
+"Selecionar o resultado"
+>![!^.v>!]!
+<![!<!]!
+
+//v2
+! "Marcação Inicial num1"
+>^>
+
+"num1:"
+
+"Ideia merda do Thomas
+.>.>.>.>i Parada aqui"
+
+<<![!^.>.>.>.>.i,<<<<]!v![!v!]!^^
+{decimal-input:![!>.>.>.>.o,[!]<[!]<[!]<[!]<^!]!:v![!v!]!>^>.>.>.>.i,}
+
+>v! "Marcação Final num1"
+
+<![!<!]!
+
+^^^!^^!vv "Marcação Inicial num2"
+
+v>>
+
+"num2:"!>>>
 >^!
 
 "Alinhar os dois números à direita"

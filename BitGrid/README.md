@@ -89,4 +89,4 @@
     no dígito da dezena, compara se os dois bits do input são iguais a 1, se forem o bit atual é invertido.
 
      Dessa forma é realizada a conta 1 + 1, ou 1 + 0, ou 0 + 1, ou 0 + 0, e são selecionados os bits da dezena e da unidade para maior destaque visual.
-  - Há mais scripts prontos na pasta [códigos-bitgrid](./codigos-bitgrid).
+  - Há mais scripts prontos na pasta [codigos-bitgrid](./codigos-bitgrid).

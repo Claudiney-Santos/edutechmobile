@@ -1,0 +1,55 @@
+.moduleBox {
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1;
+    position: fixed;
+    width: 50%;
+    height: 80%;
+    left: 25%;
+    top: calc(50% - 80%/2);
+    background-color: aliceblue;
+    border: black 1px solid;
+    border-radius: 5px;
+}
+
+.moduleBox header {
+    display: inline-block;
+    flex: 5;
+}
+
+.moduleBox .closeBtn {
+    position: absolute;
+    right: 0;
+    font-size: large;
+    border-radius: 0 4.4px 0 0;
+    border: 0;
+    background-color: #c90a0a;
+    color: white;
+    height: 5%;
+}
+
+.moduleBox .closeBtn:hover {
+    background-color: #e25f5f;
+}
+
+.moduleBox .closeBtn:active {
+    background-color: #9e0303;
+}
+
+.moduleBox main {
+    display: block;
+    flex: 95;
+    padding: 5%;
+}
+
+.moduleBox .moduleList {
+    overflow-y: scroll;
+    height: 50%;
+    border: black 1px solid;
+    margin: 10% 0 0 0;
+}
+
+.moduleTable {
+    width: 100%;
+}
