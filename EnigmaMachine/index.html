@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Enigma</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/enigma.js"></script>
+  </head>
+  <body>
+    <main>
+      <button id="config">&#9776;</button>
+      <div id="rotors"></div>
+      <div id="keyboard"></div>
+    </main>
+    <script defer>
+      (()=>{
+        const config = document.getElementById('config');
+        config.onclick = () => {
+
+        };
+
+        const rt = document.getElementById('rotors');
+        for(let i=0;i<settings.rotors.length;i++) {
+          const rotor = document.createElement('div');
+          rotor.id = `rotor-${i+1}`;
+          rotor.classList.add('rotor');
+
+          const ring = document.createElement('span');
+          ring.innerText = (settings.ring[i]+1).toString().padStart(2,'0');
+          ring.classList.add('ring');
+
+          const nextLetter = document.createElement('span');
+          nextLetter.innerText = '\u25B2';
+          nextLetter.onclick = () => {
+            settings.ring[i]++;
+            settings.ring[i] %= 26;
+            ring.innerText = (settings.ring[i]+1).toString().padStart(2,'0');
+          }
+          nextLetter.classList.add('next');
+
+          const lastLetter = document.createElement('span');
+          lastLetter.innerText = '\u25BC';
+          lastLetter.onclick = () => {
+            settings.ring[i] += 25;
+            settings.ring[i] %= 26;
+            ring.innerText = (settings.ring[i]+1).toString().padStart(2,'0');
+          }
+          lastLetter.classList.add('last');
+
+          for(const el of [nextLetter, ring, lastLetter])
+            rotor.appendChild(el);
+          rt.appendChild(rotor);
+        }
+        const kb = document.getElementById('keyboard');
+        for(const r of ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']) {
+          const row = document.createElement('div');
+          row.classList.add('row');
+          r.split('').forEach(char => {
+            const key = document.createElement('span');
+            key.classList.add('key');
+            key.id = 'key' + char.toUpperCase();
+            key.innerText = char;
+            row.appendChild(key);
+          });
+          kb.appendChild(row);
+        }
+      })()
+    </script>
+    <script>
+      let keyPressed = null;
+      let keyLighted = null;
+      addEventListener('keydown', e=>{
+        if(keyPressed !== null) return; keyPressed = e.key;
+        const key = 'key' + enigma(e.key);
+        keyLighted = key;
+        if(key === 'keynull') return;
+        for(let i=0;i<settings.rotors.length;i++)
+          document.getElementById(`rotor-${i+1}`).getElementsByClassName('ring')[0].innerText = (settings.ring[i]+1).toString().padStart(2,'0');
+        const keySpan = document.getElementById(key);
+        keySpan.classList.add('on');
+        e.preventDefault();
+      });
+      addEventListener('keyup', e=>{
+        if(keyPressed !== e.key) return; keyPressed = null;
+        const key = keyLighted;
+        keyLighted = null;
+        if(key === 'keynull') return;
+        const keySpan = document.getElementById(key);
+        keySpan.classList.remove('on');
+        e.preventDefault();
+      });
+    </script>
+  </body>
+</html>

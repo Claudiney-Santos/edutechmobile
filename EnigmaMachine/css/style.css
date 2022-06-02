@@ -1,0 +1,84 @@
+:root {
+  --bg-cor: #333;
+  --rotor: rgb(226, 222, 215);
+  --rotor-hover: rgb(179, 176, 172);
+  --key-off: rgb(182, 173, 157);
+  --key-on: rgb(255, 229, 180);
+}
+
+body {
+  background-color: var(--bg-cor);
+
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+#config {
+  position: absolute;
+
+  font-size: 50px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  padding: 0;
+}
+
+#config:hover {
+  color: #999
+}
+
+#rotors {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.rotor {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--rotor);
+  width: 5ch;
+  border: 1px solid black;
+}
+
+.rotor > * {
+  text-align: center;
+}
+
+.next, .last {
+  cursor: pointer;
+}
+.next:hover, .last:hover {
+  background-color: var(--rotor-hover);
+}
+
+#keyboard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100vw;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.key {
+  background-color: var(--key-off);
+  border-radius: 20%;
+
+  padding: 4vw;
+  margin: 0.5vw;
+}
+
+.key.on {
+  background-color: var(--key-on);
+}
